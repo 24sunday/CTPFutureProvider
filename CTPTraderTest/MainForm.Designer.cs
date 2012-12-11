@@ -400,7 +400,6 @@ namespace CTPTraderTest
       this.idSymbolCodeComboBox.Name = "idSymbolCodeComboBox";
       this.idSymbolCodeComboBox.Size = new System.Drawing.Size(100, 20);
       this.idSymbolCodeComboBox.TabIndex = 4;
-      this.idSymbolCodeComboBox.SelectedValueChanged += new System.EventHandler(this.symbolCodeComboBox1_SelectedValueChanged);
       // 
       // idDirectionComboBox
       // 

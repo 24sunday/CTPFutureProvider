@@ -285,8 +285,8 @@ namespace CTPTraderTest
       loginWorker.DoWork += new DoWorkEventHandler(new Action<object, DoWorkEventArgs>(
         (object obj, DoWorkEventArgs args) => {
 
-          trader.Connect(new string[] { "asp-sim2-front1.financial-trading-platform.com:26205" }, "2030", "00202", "ctpisgood");
-          quote.Connect(new string[] { "asp-sim2-md1.financial-trading-platform.com:26213" }, "2030", "00202", "ctpisgood");
+          trader.Connect(new string[] { "asp-sim2-front1.financial-trading-platform.com:26205" }, "2030", "", "");
+          quote.Connect(new string[] { "asp-sim2-md1.financial-trading-platform.com:26213" }, "2030", "", "");
 
 
           int timeoutCounter = 0;
@@ -364,22 +364,6 @@ namespace CTPTraderTest
 
         trader.InsertOrder(symbolCode, price, direction, volume, offset);
       }
-    }
-
-    private void symbolCodeComboBox1_SelectedValueChanged(object sender, EventArgs e)
-    {
-
-      //if (symbolCodeComboBox1.SelectedItem != null)
-      //{
-      //  TEsContractRspField field = (TEsContractRspField)symbolCodeComboBox1.SelectedItem;
-        
-      //  TEsQuoteReqField req = new TEsQuoteReqField();
-      //  req.Exchange = field.Exchange;
-      //  req.CmbType = CTPStockCombinOrderType.Normal;
-      //  req.Contract1 = field.Contract;
-      //  req.SubQuote = CTPStockSubQuoteType.订阅;
-      //  this.quote.SubQuote(req);
-      //}
     }
 
     private void idQuerySymbolMenuItem_Click(object sender, EventArgs e)
