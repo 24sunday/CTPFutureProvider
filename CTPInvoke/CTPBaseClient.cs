@@ -338,6 +338,12 @@ namespace CalmBeltFund.Trading.CTP
     /// <param name="requestID"></param>
     protected void ReceiveResponseData(TResponseType responseType, IntPtr pData, int requestID)
     {
+
+      if (requestID == 0)
+      {
+        return;
+      }
+
       //建立响应数据缓存
       if (this.responseDataMap.ContainsKey(requestID) == false)
       {
@@ -376,10 +382,10 @@ namespace CalmBeltFund.Trading.CTP
     /// <param name="rspInfo"></param>
     protected CTPEventArgs<T> CreateEventArgs<T>(int requestID, CTPResponseInfo rspInfo) where T : struct
     {
-      //if (requestID == 0)
-      //{
-      //  throw new CBFNativeException("Invalid Operation in PreProcessResponse");
-      //}
+      if (requestID == 0)
+      {
+        throw new Exception("Invalid Operation in CreateEventArgs");
+      }
 
 
       //转换响应数据

@@ -1916,7 +1916,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 银行发起银行资金转期货通知
         case CTPResponseType.ReturnFromBankToFutureByBankResponse:
           {
-            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnFromBankToFutureByBankResponse, args);
@@ -1928,7 +1928,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 银行发起期货资金转银行通知
         case CTPResponseType.ReturnFromFutureToBankByBankResponse:
           {
-            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnFromFutureToBankByBankResponse, args);
@@ -1940,7 +1940,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 银行发起冲正银行转期货通知
         case CTPResponseType.ReturnRepealFromBankToFutureByBankResponse:
           {
-            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnRepealFromBankToFutureByBankResponse, args);
@@ -1952,7 +1952,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 银行发起冲正期货转银行通知
         case CTPResponseType.ReturnRepealFromFutureToBankByBankResponse:
           {
-            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnRepealFromFutureToBankByBankResponse, args);
@@ -1964,7 +1964,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货发起银行资金转期货通知
         case CTPResponseType.ReturnFromBankToFutureByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnFromBankToFutureByFutureResponse, args);
@@ -1976,7 +1976,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货发起期货资金转银行通知
         case CTPResponseType.ReturnFromFutureToBankByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspTransferField> args = CreateEventArgs<CThostFtdcRspTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnFromFutureToBankByFutureResponse, args);
@@ -1988,7 +1988,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 系统运行时期手工冲正
         case CTPResponseType.ReturnRepealFromBankToFutureByFutureManualResponse:
           {
-            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnRepealFromBankToFutureByFutureManualResponse, args);
@@ -1997,7 +1997,7 @@ namespace CalmBeltFund.Trading.CTP
           }
         case CTPResponseType.ReturnRepealFromFutureToBankByFutureManualResponse:
           {
-            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnRepealFromFutureToBankByFutureManualResponse, args);
@@ -2009,7 +2009,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货发起查询银行余额通知
         case CTPResponseType.ReturnQueryBankBalanceByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcNotifyQueryAccountField> args = CreateEventArgs<CThostFtdcNotifyQueryAccountField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcNotifyQueryAccountField> args = CreateEventArgs<CThostFtdcNotifyQueryAccountField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnQueryBankBalanceByFutureResponse, args);
@@ -2021,7 +2021,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货端出入金错误回报
         case CTPResponseType.ErrorReturnBankToFutureByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ErrorReturnBankToFutureByFutureResponse, args);
@@ -2030,7 +2030,7 @@ namespace CalmBeltFund.Trading.CTP
           }
         case CTPResponseType.ErrorReturnFutureToBankByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ErrorReturnFutureToBankByFutureResponse, args);
@@ -2042,7 +2042,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 手工冲正错误回报
         case CTPResponseType.ErrorReturnRepealBankToFutureByFutureManualResponse:
           {
-            CTPEventArgs<CThostFtdcReqRepealField> args = CreateEventArgs<CThostFtdcReqRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqRepealField> args = CreateEventArgs<CThostFtdcReqRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ErrorReturnRepealBankToFutureByFutureManualResponse, args);
@@ -2051,7 +2051,7 @@ namespace CalmBeltFund.Trading.CTP
           }
         case CTPResponseType.ErrorReturnRepealFutureToBankByFutureManualResponse:
           {
-            CTPEventArgs<CThostFtdcReqRepealField> args = CreateEventArgs<CThostFtdcReqRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqRepealField> args = CreateEventArgs<CThostFtdcReqRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ErrorReturnRepealFutureToBankByFutureManualResponse, args);
@@ -2063,7 +2063,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货发起查询银行余额错误回报
         case CTPResponseType.ErrorReturnQueryBankBalanceByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcReqQueryAccountField> args = CreateEventArgs<CThostFtdcReqQueryAccountField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqQueryAccountField> args = CreateEventArgs<CThostFtdcReqQueryAccountField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ErrorReturnQueryBankBalanceByFutureResponse, args);
@@ -2075,7 +2075,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货发起冲正请求，银行处理完毕后报盘发回的通知
         case CTPResponseType.ReturnRepealFromBankToFutureByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnRepealFromBankToFutureByFutureResponse, args);
@@ -2084,7 +2084,7 @@ namespace CalmBeltFund.Trading.CTP
           }
         case CTPResponseType.ReturnRepealFromFutureToBankByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspRepealField> args = CreateEventArgs<CThostFtdcRspRepealField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.ReturnRepealFromFutureToBankByFutureResponse, args);
@@ -2096,7 +2096,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 期货发起出入金应答
         case CTPResponseType.FromBankToFutureByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.FromBankToFutureByFutureResponse, args);
@@ -2105,7 +2105,7 @@ namespace CalmBeltFund.Trading.CTP
           }
         case CTPResponseType.FromFutureToBankByFutureResponse:
           {
-            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcReqTransferField> args = CreateEventArgs<CThostFtdcReqTransferField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.FromFutureToBankByFutureResponse, args);

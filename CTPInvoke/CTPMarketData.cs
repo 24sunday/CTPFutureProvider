@@ -133,7 +133,7 @@ namespace CalmBeltFund.Trading.CTP
         #region 用户登录
         case CTPResponseType.UserLoginResponse:
           {
-            CTPEventArgs<CThostFtdcRspUserLoginField> args = CreateEventArgs<CThostFtdcRspUserLoginField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspUserLoginField> args = CreateEventArgs<CThostFtdcRspUserLoginField>(pData, rspInfo);
 
             this.isLogin = true;
 
