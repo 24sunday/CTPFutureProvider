@@ -63,8 +63,8 @@ namespace CTPTraderTest
       this.idVolumeNumericUpDown = new System.Windows.Forms.NumericUpDown();
       this.idPriceNumericUpDown = new System.Windows.Forms.NumericUpDown();
       this.idSendOrderButton = new System.Windows.Forms.Button();
-      this.idQueryQuoteButton = new System.Windows.Forms.Button();
       this.idCancelButton = new System.Windows.Forms.Button();
+      this.idQueryQuoteButton = new System.Windows.Forms.Button();
       this.tabControl1.SuspendLayout();
       this.idOrderPage.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.idOrderDataGridView)).BeginInit();
@@ -350,6 +350,7 @@ namespace CTPTraderTest
       // 
       this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+      this.splitContainer2.IsSplitterFixed = true;
       this.splitContainer2.Location = new System.Drawing.Point(0, 0);
       this.splitContainer2.Name = "splitContainer2";
       this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -361,7 +362,6 @@ namespace CTPTraderTest
       // splitContainer2.Panel2
       // 
       this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel1);
-      this.splitContainer2.Panel2.Controls.Add(this.idQueryQuoteButton);
       this.splitContainer2.Size = new System.Drawing.Size(688, 146);
       this.splitContainer2.SplitterDistance = 113;
       this.splitContainer2.TabIndex = 0;
@@ -382,6 +382,7 @@ namespace CTPTraderTest
       // flowLayoutPanel1
       // 
       this.flowLayoutPanel1.Controls.Add(this.idSymbolCodeComboBox);
+      this.flowLayoutPanel1.Controls.Add(this.idQueryQuoteButton);
       this.flowLayoutPanel1.Controls.Add(this.idDirectionComboBox);
       this.flowLayoutPanel1.Controls.Add(this.idOffsetComboBox);
       this.flowLayoutPanel1.Controls.Add(this.idVolumeNumericUpDown);
@@ -396,6 +397,8 @@ namespace CTPTraderTest
       // 
       // idSymbolCodeComboBox
       // 
+      this.idSymbolCodeComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+      this.idSymbolCodeComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
       this.idSymbolCodeComboBox.Location = new System.Drawing.Point(3, 3);
       this.idSymbolCodeComboBox.Name = "idSymbolCodeComboBox";
       this.idSymbolCodeComboBox.Size = new System.Drawing.Size(100, 20);
@@ -403,23 +406,25 @@ namespace CTPTraderTest
       // 
       // idDirectionComboBox
       // 
+      this.idDirectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.idDirectionComboBox.FormattingEnabled = true;
-      this.idDirectionComboBox.Location = new System.Drawing.Point(109, 3);
+      this.idDirectionComboBox.Location = new System.Drawing.Point(127, 3);
       this.idDirectionComboBox.Name = "idDirectionComboBox";
       this.idDirectionComboBox.Size = new System.Drawing.Size(64, 20);
       this.idDirectionComboBox.TabIndex = 1;
       // 
       // idOffsetComboBox
       // 
+      this.idOffsetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.idOffsetComboBox.FormattingEnabled = true;
-      this.idOffsetComboBox.Location = new System.Drawing.Point(179, 3);
+      this.idOffsetComboBox.Location = new System.Drawing.Point(197, 3);
       this.idOffsetComboBox.Name = "idOffsetComboBox";
       this.idOffsetComboBox.Size = new System.Drawing.Size(64, 20);
       this.idOffsetComboBox.TabIndex = 6;
       // 
       // idVolumeNumericUpDown
       // 
-      this.idVolumeNumericUpDown.Location = new System.Drawing.Point(249, 3);
+      this.idVolumeNumericUpDown.Location = new System.Drawing.Point(267, 3);
       this.idVolumeNumericUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -442,7 +447,7 @@ namespace CTPTraderTest
             0,
             0,
             131072});
-      this.idPriceNumericUpDown.Location = new System.Drawing.Point(327, 3);
+      this.idPriceNumericUpDown.Location = new System.Drawing.Point(345, 3);
       this.idPriceNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -454,7 +459,7 @@ namespace CTPTraderTest
       // 
       // idSendOrderButton
       // 
-      this.idSendOrderButton.Location = new System.Drawing.Point(405, 3);
+      this.idSendOrderButton.Location = new System.Drawing.Point(423, 3);
       this.idSendOrderButton.Name = "idSendOrderButton";
       this.idSendOrderButton.Size = new System.Drawing.Size(75, 23);
       this.idSendOrderButton.TabIndex = 3;
@@ -462,19 +467,9 @@ namespace CTPTraderTest
       this.idSendOrderButton.UseVisualStyleBackColor = true;
       this.idSendOrderButton.Click += new System.EventHandler(this.idSendOrderButton_Click);
       // 
-      // idQueryQuoteButton
-      // 
-      this.idQueryQuoteButton.Location = new System.Drawing.Point(498, 6);
-      this.idQueryQuoteButton.Name = "idQueryQuoteButton";
-      this.idQueryQuoteButton.Size = new System.Drawing.Size(75, 23);
-      this.idQueryQuoteButton.TabIndex = 5;
-      this.idQueryQuoteButton.Text = "button1";
-      this.idQueryQuoteButton.UseVisualStyleBackColor = true;
-      this.idQueryQuoteButton.Click += new System.EventHandler(this.idQueryQuoteButton_Click);
-      // 
       // idCancelButton
       // 
-      this.idCancelButton.Location = new System.Drawing.Point(486, 3);
+      this.idCancelButton.Location = new System.Drawing.Point(504, 3);
       this.idCancelButton.Name = "idCancelButton";
       this.idCancelButton.Size = new System.Drawing.Size(75, 23);
       this.idCancelButton.TabIndex = 7;
@@ -482,7 +477,18 @@ namespace CTPTraderTest
       this.idCancelButton.UseVisualStyleBackColor = true;
       this.idCancelButton.Click += new System.EventHandler(this.idCancelButton_Click);
       // 
-      // Form1
+      // idQueryQuoteButton
+      // 
+      this.idQueryQuoteButton.Location = new System.Drawing.Point(106, 3);
+      this.idQueryQuoteButton.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+      this.idQueryQuoteButton.Name = "idQueryQuoteButton";
+      this.idQueryQuoteButton.Size = new System.Drawing.Size(15, 20);
+      this.idQueryQuoteButton.TabIndex = 5;
+      this.idQueryQuoteButton.Text = "+";
+      this.idQueryQuoteButton.UseVisualStyleBackColor = true;
+      this.idQueryQuoteButton.Click += new System.EventHandler(this.idQueryQuoteButton_Click);
+      // 
+      // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -491,7 +497,7 @@ namespace CTPTraderTest
       this.Controls.Add(this.statusStrip1);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Name = "Form1";
+      this.Name = "MainForm";
       this.Text = "CTP平台测试";
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
       this.Load += new System.EventHandler(this.Form1_Load);

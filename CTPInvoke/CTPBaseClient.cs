@@ -93,7 +93,6 @@ namespace CalmBeltFund.Trading.CTP
 
       this.callback = new CTPResponseCallback(CTPResponseHandler);
 
-      InitEvents();
       InitResponseDataTypeMapping();
 
       queryTaskTimer = new Timer(new TimerCallback(this.ProcessQueryTask));
@@ -165,24 +164,6 @@ namespace CalmBeltFund.Trading.CTP
           return;
         }
       }
-    }
-
-    /// <summary>
-    /// 初始化事件列表
-    /// </summary>
-    private void InitEvents()
-    {
-      Type type = this.GetType();
-
-      EventInfo[] events = type.GetEvents();
-
-      //foreach (EventInfo item in events)
-      //{
-      //  if (this.events.ContainsKey(item.Name) == false)
-      //  {
-      //    this.events.Add(item.Name, null);
-      //  }
-      //}
     }
 
     /// <summary>

@@ -537,10 +537,10 @@ namespace CalmBeltFund.Trading.CTP
       order.Direction = direct;
 
       //开平仓
-      order.CombOffsetFlag = new byte[] { (byte)flag, 0, 0, 0, 0 };
+      order.OffsetFlag = flag;
 
       //投机/套保
-      order.CombHedgeFlag = new byte[] { (byte)CTPHedgeFlagType.Speculation, 0, 0, 0, 0 };
+      order.HedgeFlag = CTPHedgeFlagType.Speculation;
 
       //套利合约
       if (this.instrumentDictionary.ContainsKey(symbolCode))
@@ -548,10 +548,12 @@ namespace CalmBeltFund.Trading.CTP
         if (this.instrumentDictionary[symbolCode].ProductClass == CTPProductClassType.Combination)
         {
           //开平仓
-          order.CombOffsetFlag = new byte[] { (byte)flag, (byte)flag, 0, 0, 0 };
+          order.OffsetFlag = flag;
+          order.OffsetFlag2 = flag;
 
           //投机/套保
-          order.CombHedgeFlag = new byte[] { (byte)CTPHedgeFlagType.Speculation, (byte)CTPHedgeFlagType.Speculation, 0, 0, 0 };
+          order.HedgeFlag = CTPHedgeFlagType.Speculation;
+          order.HedgeFlag2 = CTPHedgeFlagType.Speculation;
         }
       }
 
@@ -605,10 +607,10 @@ namespace CalmBeltFund.Trading.CTP
       order.Direction = direct;
 
       //开平仓
-      order.CombOffsetFlag = new byte[] { (byte)flag, 0, 0, 0, 0 };
+      order.OffsetFlag = flag;
 
       //投机/套保
-      order.CombHedgeFlag = new byte[] { (byte)CTPHedgeFlagType.Speculation, 0, 0, 0, 0 };
+      order.HedgeFlag = CTPHedgeFlagType.Speculation;
 
       ///价格
       order.LimitPrice = price;
@@ -1011,7 +1013,7 @@ namespace CalmBeltFund.Trading.CTP
     }
 
     /// <summary>
-    /// 查询交易所
+    /// 查询保证金中心KEY
     /// </summary>
     /// <param name="exchangeID"></param>
     public void QueryCFMMCTradingAccountKey()
@@ -1137,7 +1139,7 @@ namespace CalmBeltFund.Trading.CTP
         case CTPResponseType.UserLoginResponse:
           {
 
-            CTPEventArgs<CThostFtdcRspUserLoginField> args = CreateEventArgs<CThostFtdcRspUserLoginField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcRspUserLoginField> args = CreateEventArgs<CThostFtdcRspUserLoginField>(pData, rspInfo);
 
             CThostFtdcRspUserLoginField userLogin = args.Value;
 
@@ -1234,7 +1236,7 @@ namespace CalmBeltFund.Trading.CTP
         case CTPResponseType.OrderInsertResponse:
           {
 
-            CTPEventArgs<CThostFtdcInputOrderField> args = CreateEventArgs<CThostFtdcInputOrderField>(requestID, rspInfo);
+            CTPEventArgs<CThostFtdcInputOrderField> args = CreateEventArgs<CThostFtdcInputOrderField>(pData, rspInfo);
 
             //调用事件
             OnEventHandler(CTPResponseType.OrderInsertResponse, args);

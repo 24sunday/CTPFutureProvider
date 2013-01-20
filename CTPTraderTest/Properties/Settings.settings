@@ -1,7 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CTPTraderTest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TradeServerAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">180.168.102.230:26205</Value>
+    </Setting>
+    <Setting Name="QuoteServerAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">180.168.102.230:26213</Value>
+    </Setting>
+    <Setting Name="BrokerID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1001</Value>
+    </Setting>
+    <Setting Name="TradingAccountID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00000001</Value>
+    </Setting>
+    <Setting Name="TradingAccountPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

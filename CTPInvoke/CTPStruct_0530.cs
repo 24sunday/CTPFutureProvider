@@ -2876,17 +2876,55 @@ namespace CalmBeltFund.Trading.CTP
     [Description("买卖方向")]
     public CTPDirectionType Direction;
     /// <summary>
-    /// 组合开平标志
+    /// 开平标志
     /// </summary>
-    [Description("组合开平标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombOffsetFlag;
+    [Description("开平标志")]
+    public CTPOffsetFlagType OffsetFlag;
     /// <summary>
-    /// 组合投机套保标志
+    /// 开平标志
     /// </summary>
-    [Description("组合投机套保标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombHedgeFlag;
+    [Description("开平标志2")]
+    public CTPOffsetFlagType OffsetFlag2;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志3")]
+    public CTPOffsetFlagType OffsetFlag3;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志4")]
+    public CTPOffsetFlagType OffsetFlag4;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志5")]
+    public CTPOffsetFlagType OffsetFlag5;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志")]
+    public CTPHedgeFlagType HedgeFlag;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志2")]
+    public CTPHedgeFlagType HedgeFlag2;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志3")]
+    public CTPHedgeFlagType HedgeFlag3;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志4")]
+    public CTPHedgeFlagType HedgeFlag4;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志5")]
+    public CTPHedgeFlagType HedgeFlag5;
     /// <summary>
     /// 价格
     /// </summary>
@@ -3009,17 +3047,55 @@ namespace CalmBeltFund.Trading.CTP
     [Description("买卖方向")]
     public CTPDirectionType Direction;
     /// <summary>
-    /// 组合开平标志
+    /// 开平标志
     /// </summary>
-    [Description("组合开平标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombOffsetFlag;
+    [Description("开平标志")]
+    public CTPOffsetFlagType OffsetFlag;
     /// <summary>
-    /// 组合投机套保标志
+    /// 开平标志
     /// </summary>
-    [Description("组合投机套保标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombHedgeFlag;
+    [Description("开平标志2")]
+    public CTPOffsetFlagType OffsetFlag2;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志3")]
+    public CTPOffsetFlagType OffsetFlag3;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志4")]
+    public CTPOffsetFlagType OffsetFlag4;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志5")]
+    public CTPOffsetFlagType OffsetFlag5;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志")]
+    public CTPHedgeFlagType HedgeFlag;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志2")]
+    public CTPHedgeFlagType HedgeFlag2;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志3")]
+    public CTPHedgeFlagType HedgeFlag3;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志4")]
+    public CTPHedgeFlagType HedgeFlag4;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志5")]
+    public CTPHedgeFlagType HedgeFlag5;
     /// <summary>
     /// 价格
     /// </summary>
@@ -3304,17 +3380,55 @@ namespace CalmBeltFund.Trading.CTP
     [Description("买卖方向")]
     public CTPDirectionType Direction;
     /// <summary>
-    /// 组合开平标志
+    /// 开平标志
     /// </summary>
-    [Description("组合开平标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombOffsetFlag;
+    [Description("开平标志")]
+    public CTPOffsetFlagType OffsetFlag;
     /// <summary>
-    /// 组合投机套保标志
+    /// 开平标志
     /// </summary>
-    [Description("组合投机套保标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombHedgeFlag;
+    [Description("开平标志2")]
+    public CTPOffsetFlagType OffsetFlag2;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志3")]
+    public CTPOffsetFlagType OffsetFlag3;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志4")]
+    public CTPOffsetFlagType OffsetFlag4;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志5")]
+    public CTPOffsetFlagType OffsetFlag5;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志")]
+    public CTPHedgeFlagType HedgeFlag;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志2")]
+    public CTPHedgeFlagType HedgeFlag2;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志3")]
+    public CTPHedgeFlagType HedgeFlag3;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志4")]
+    public CTPHedgeFlagType HedgeFlag4;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志5")]
+    public CTPHedgeFlagType HedgeFlag5;
     /// <summary>
     /// 价格
     /// </summary>
@@ -7701,17 +7815,55 @@ namespace CalmBeltFund.Trading.CTP
     [Description("买卖方向")]
     public CTPDirectionType Direction;
     /// <summary>
-    /// 组合开平标志
+    /// 开平标志
     /// </summary>
-    [Description("组合开平标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombOffsetFlag;
+    [Description("开平标志")]
+    public CTPOffsetFlagType OffsetFlag;
     /// <summary>
-    /// 组合投机套保标志
+    /// 开平标志
     /// </summary>
-    [Description("组合投机套保标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombHedgeFlag;
+    [Description("开平标志2")]
+    public CTPOffsetFlagType OffsetFlag2;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志3")]
+    public CTPOffsetFlagType OffsetFlag3;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志4")]
+    public CTPOffsetFlagType OffsetFlag4;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志5")]
+    public CTPOffsetFlagType OffsetFlag5;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志")]
+    public CTPHedgeFlagType HedgeFlag;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志2")]
+    public CTPHedgeFlagType HedgeFlag2;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志3")]
+    public CTPHedgeFlagType HedgeFlag3;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志4")]
+    public CTPHedgeFlagType HedgeFlag4;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志5")]
+    public CTPHedgeFlagType HedgeFlag5;
     /// <summary>
     /// 价格
     /// </summary>
@@ -8521,17 +8673,55 @@ namespace CalmBeltFund.Trading.CTP
     [Description("买卖方向")]
     public CTPDirectionType Direction;
     /// <summary>
-    /// 组合开平标志
+    /// 开平标志
     /// </summary>
-    [Description("组合开平标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombOffsetFlag;
+    [Description("开平标志")]
+    public CTPOffsetFlagType OffsetFlag;
     /// <summary>
-    /// 组合投机套保标志
+    /// 开平标志
     /// </summary>
-    [Description("组合投机套保标志")]
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
-    public byte[] CombHedgeFlag;
+    [Description("开平标志2")]
+    public CTPOffsetFlagType OffsetFlag2;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志3")]
+    public CTPOffsetFlagType OffsetFlag3;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志4")]
+    public CTPOffsetFlagType OffsetFlag4;
+    /// <summary>
+    /// 开平标志
+    /// </summary>
+    [Description("开平标志5")]
+    public CTPOffsetFlagType OffsetFlag5;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志")]
+    public CTPHedgeFlagType HedgeFlag;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志2")]
+    public CTPHedgeFlagType HedgeFlag2;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志3")]
+    public CTPHedgeFlagType HedgeFlag3;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志4")]
+    public CTPHedgeFlagType HedgeFlag4;
+    /// <summary>
+    /// 投机套保标志
+    /// </summary>
+    [Description("投机套保标志5")]
+    public CTPHedgeFlagType HedgeFlag5;
     /// <summary>
     /// 价格
     /// </summary>

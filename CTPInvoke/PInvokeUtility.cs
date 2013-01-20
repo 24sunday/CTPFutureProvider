@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 
 namespace CalmBeltFund.Trading.CTP
 {
-  internal class PInvokeUtility
+  public class PInvokeUtility
   {
     static Encoding encodingGB2312 = Encoding.GetEncoding(936);
 
-    internal static string GetUnicodeString(byte[] str)
+    public static string GetUnicodeString(byte[] str)
     {
 
       if (str == null)

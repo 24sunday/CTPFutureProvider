@@ -11,16 +11,15 @@ using System.Reflection;
 using System.Diagnostics;
 using System.Collections;
 using CalmBeltFund.Trading.CTP;
+using CTPTraderTest.Properties;
 
 namespace CTPTraderTest
 {
   public partial class MainForm : Form
   {
 
-    CTPTrader trader = new CTPTrader();
-    CTPMarketData quote = new CTPMarketData();
-    bool isLogin = false;
-    BackgroundWorker loginWorker = null;
+    CTPTrader trader = null;
+    CTPMarketData quote = null;
 
     BindingList<CThostFtdcDepthMarketDataField> quoteList = new BindingList<CThostFtdcDepthMarketDataField>();
 
@@ -28,30 +27,38 @@ namespace CTPTraderTest
     {
       InitializeComponent();
 
+    }
+
+    void RegisterTraderResponseHandler(CTPTrader trader)
+    {
       //注册事件处理函数
-      this.trader.UserLoginResponse += new EventHandler<CTPEventArgs<CThostFtdcRspUserLoginField>>(trader_UserLoginResponse);
-      this.trader.QueryExchangeResponse += new EventHandler<CTPEventArgs<CTPExchange>>(trader_QueryExchangeResponse);
-      this.trader.QueryInstrumentResponse += new EventHandler<CTPEventArgs<List<CTPInstrument>>>(trader_QueryInstrumentResponse);
+      trader.UserLoginResponse += new EventHandler<CTPEventArgs<CThostFtdcRspUserLoginField>>(trader_UserLoginResponse);
+      trader.QueryExchangeResponse += new EventHandler<CTPEventArgs<CTPExchange>>(trader_QueryExchangeResponse);
+      trader.QueryInstrumentResponse += new EventHandler<CTPEventArgs<List<CTPInstrument>>>(trader_QueryInstrumentResponse);
 
-      this.trader.QueryInvestorResponse += new EventHandler<CTPEventArgs<CThostFtdcInvestorField>>(trader_QueryInvestorResponse);
-      this.trader.QueryTradingAccountResponse += new EventHandler<CTPEventArgs<CThostFtdcTradingAccountField>>(trader_QueryTradingAccountResponse);
-      this.trader.QueryInvestorPositionResponse += new EventHandler<CTPEventArgs<List<CThostFtdcInvestorPositionField>>>(trader_QueryInvestorPositionResponse);
-      this.trader.QueryInvestorPositionDetailResponse += new EventHandler<CTPEventArgs<List<CThostFtdcInvestorPositionDetailField>>>(trader_QueryInvestorPositionDetailResponse);
-      this.trader.QueryOrderResponse += new EventHandler<CTPEventArgs<List<CThostFtdcOrderField>>>(trader_QueryOrderResponse);
-      this.trader.QueryTradeResponse += new EventHandler<CTPEventArgs<List<CThostFtdcTradeField>>>(trader_QueryTradeResponse);
+      trader.QueryInvestorResponse += new EventHandler<CTPEventArgs<CThostFtdcInvestorField>>(trader_QueryInvestorResponse);
+      trader.QueryTradingAccountResponse += new EventHandler<CTPEventArgs<CThostFtdcTradingAccountField>>(trader_QueryTradingAccountResponse);
+      trader.QueryInvestorPositionResponse += new EventHandler<CTPEventArgs<List<CThostFtdcInvestorPositionField>>>(trader_QueryInvestorPositionResponse);
+      trader.QueryInvestorPositionDetailResponse += new EventHandler<CTPEventArgs<List<CThostFtdcInvestorPositionDetailField>>>(trader_QueryInvestorPositionDetailResponse);
+      trader.QueryOrderResponse += new EventHandler<CTPEventArgs<List<CThostFtdcOrderField>>>(trader_QueryOrderResponse);
+      trader.QueryTradeResponse += new EventHandler<CTPEventArgs<List<CThostFtdcTradeField>>>(trader_QueryTradeResponse);
 
-      this.trader.OrderInsertResponse += new EventHandler<CTPEventArgs<CThostFtdcInputOrderField>>(trader_OrderInsertResponse);
-      this.trader.OrderActionResponse += new EventHandler<CTPEventArgs<CThostFtdcInputOrderActionField>>(trader_OrderActionResponse);
-      this.trader.ErrorReturnOrderInsertResponse += new EventHandler<CTPEventArgs<CThostFtdcInputOrderField>>(trader_ErrorReturnOrderInsertResponse);
-      this.trader.ReturnOrderResponse += new EventHandler<CTPEventArgs<CThostFtdcOrderField>>(trader_ReturnOrderResponse);
-      this.trader.ReturnTradeResponse += new EventHandler<CTPEventArgs<CThostFtdcTradeField>>(trader_ReturnTradeResponse);
-      
-      this.trader.ReturnInstrumentStatusResponse += new EventHandler<CTPEventArgs<CThostFtdcInstrumentStatusField>>(trader_ReturnInstrumentStatusResponse);
-      this.trader.QueryDepthMarketDataResponse += new EventHandler<CTPEventArgs<CThostFtdcDepthMarketDataField>>(trader_QueryDepthMarketDataResponse);
+      trader.OrderInsertResponse += new EventHandler<CTPEventArgs<CThostFtdcInputOrderField>>(trader_OrderInsertResponse);
+      trader.OrderActionResponse += new EventHandler<CTPEventArgs<CThostFtdcInputOrderActionField>>(trader_OrderActionResponse);
+      trader.ErrorReturnOrderInsertResponse += new EventHandler<CTPEventArgs<CThostFtdcInputOrderField>>(trader_ErrorReturnOrderInsertResponse);
+      trader.ReturnOrderResponse += new EventHandler<CTPEventArgs<CThostFtdcOrderField>>(trader_ReturnOrderResponse);
+      trader.ReturnTradeResponse += new EventHandler<CTPEventArgs<CThostFtdcTradeField>>(trader_ReturnTradeResponse);
 
-      this.trader.SettlementInfoConfirmResponse += new EventHandler<CTPEventArgs<CThostFtdcSettlementInfoConfirmField>>(trader_SettlementInfoConfirmResponse);
+      trader.ReturnInstrumentStatusResponse += new EventHandler<CTPEventArgs<CThostFtdcInstrumentStatusField>>(trader_ReturnInstrumentStatusResponse);
+      trader.QueryDepthMarketDataResponse += new EventHandler<CTPEventArgs<CThostFtdcDepthMarketDataField>>(trader_QueryDepthMarketDataResponse);
 
-      this.quote.DepthMarketDataResponse += new EventHandler<CTPEventArgs<CThostFtdcDepthMarketDataField>>(quote_DepthMarketDataResponse);
+      trader.SettlementInfoConfirmResponse += new EventHandler<CTPEventArgs<CThostFtdcSettlementInfoConfirmField>>(trader_SettlementInfoConfirmResponse);
+
+    }
+
+    void RegisterQuoteResponseHandler(CTPMarketData quote)
+    {
+      quote.DepthMarketDataResponse += new EventHandler<CTPEventArgs<CThostFtdcDepthMarketDataField>>(quote_DepthMarketDataResponse);
     }
 
     void trader_SettlementInfoConfirmResponse(object sender, CTPEventArgs<CThostFtdcSettlementInfoConfirmField> e)
@@ -233,6 +240,18 @@ namespace CTPTraderTest
     {
       PrintObjectList(e.Value);
       BindObjectList(this.idSymbolDataGridView,e.Value);
+
+      //添加合约到下拉列表
+      this.Invoke(new Action(() =>
+        {
+          string[] symbols = (from s in e.Value orderby s.ID select s.ID).ToArray();
+
+          this.idSymbolCodeComboBox.Items.Clear();
+          this.idSymbolCodeComboBox.Items.AddRange(symbols);
+
+          this.idSymbolCodeComboBox.AutoCompleteCustomSource.Clear();
+          this.idSymbolCodeComboBox.AutoCompleteCustomSource.AddRange(symbols);
+        }));
     }
 
     void trader_UserLoginResponse(object sender, CTPEventArgs<CThostFtdcRspUserLoginField> e)
@@ -276,45 +295,25 @@ namespace CTPTraderTest
       this.idQuoteDataGridView.DataSource = CreateObjectFiledTable(new CThostFtdcDepthMarketDataField());
 
     }
-    
 
     private void idLoginMenuItem_Click(object sender, EventArgs e)
     {
-      loginWorker = new BackgroundWorker();
+      LoginForm login = new LoginForm();
 
-      loginWorker.DoWork += new DoWorkEventHandler(new Action<object, DoWorkEventArgs>(
-        (object obj, DoWorkEventArgs args) => {
+      login.TradeServerLogged += new EventHandler(
+        (object s, EventArgs args) =>
+        {
+          //可增加其他监听处理
+          //比如多账户：traderList.Add(s as CTPTrader);
 
-          trader.Connect(new string[] { "asp-sim2-front1.financial-trading-platform.com:26205" }, "2030", "", "");
-          quote.Connect(new string[] { "asp-sim2-md1.financial-trading-platform.com:26213" }, "2030", "", "");
 
+          //处理登录成功事件
+          ShowMessage("交易账户登录成功，开始初始化信息...");
 
-          int timeoutCounter = 0;
+          CTPTrader trader = s as CTPTrader;
 
-          while (true)
-          {
+          RegisterTraderResponseHandler(trader);
 
-            if (trader.IsLogin && quote.IsLogin)
-            {
-              isLogin = true;
-              ShowMessage("连接成功");
-              break;
-            }
-
-            //30秒超时设置
-            if (timeoutCounter >= 60)
-            {
-              isLogin = false;
-              ShowMessage("连接超时");
-              break;
-            }
-
-            ShowMessage("正在连接");
-            timeoutCounter++;
-            Thread.Sleep(500);
-          }
-
-          ShowMessage("开始初始化信息");
           trader.QueryInstrument();
           trader.QueryOrder();
           trader.QueryTrade();
@@ -322,12 +321,17 @@ namespace CTPTraderTest
           trader.QueryTradingAccount();
           //确认结算单
           trader.SettlementInfoConfirm();
+        });
 
-      }));
+      if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+      {
 
+        this.trader = login.Trader;
+        this.quote = login.Quote;
+       
+        RegisterQuoteResponseHandler(this.quote);
 
-      //开始登录
-      loginWorker.RunWorkerAsync();
+      }
     }
 
     private void idQueryUserMenuItem_Click(object sender, EventArgs e)

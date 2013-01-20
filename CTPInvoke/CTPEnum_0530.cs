@@ -565,6 +565,10 @@ namespace CalmBeltFund.Trading.CTP
   public enum CTPTradingRoleType : byte
   {
     /// <summary>
+    /// 缺省（基于兼容性考虑增加该项，非CTP定义）
+    /// </summary>
+    Default = (byte)0,
+    /// <summary>
     /// 代理
     /// </summary>
     Broker = (byte)'1',

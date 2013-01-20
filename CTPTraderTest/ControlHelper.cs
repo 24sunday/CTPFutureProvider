@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Collections;
 using System.Diagnostics;
+using CalmBeltFund.Trading.CTP;
 
 namespace CTPTraderTest
 {
@@ -94,9 +95,10 @@ namespace CTPTraderTest
       foreach (FieldInfo field in type.GetFields())
       {
 
-        if (field.FieldType.IsArray)
+        if (field.FieldType == typeof(byte[]))
         {
-          table.Columns.Add(field.Name, field.FieldType.GetElementType());
+          //Byte[]类型的字段，显示时使用String
+          table.Columns.Add(field.Name, typeof(string));
         }
         else
         {
@@ -173,7 +175,16 @@ namespace CTPTraderTest
 
       foreach (FieldInfo field in type.GetFields())
       {
-        row[field.Name] = field.GetValue(obj);
+
+        if (field.FieldType == typeof(byte[]))
+        {
+          //Byte[]类型的字段，显示时使用String
+          row[field.Name] = PInvokeUtility.GetUnicodeString((byte[])field.GetValue(obj));
+        }
+        else
+        {
+          row[field.Name] = field.GetValue(obj);
+        }
       }
 
       foreach (PropertyInfo pro in type.GetProperties())

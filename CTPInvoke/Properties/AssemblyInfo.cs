@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("CTP API(ver20120828) C# Invoke Interface")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("lumen")]
-[assembly: AssemblyProduct("CTPFutrueProvider")]
+[assembly: AssemblyProduct("CTPFutureProvider")]
 [assembly: AssemblyCopyright("lumen.xh@gmail.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
