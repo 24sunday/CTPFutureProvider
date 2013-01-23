@@ -72,7 +72,7 @@ extern "C"
         pTrader->RegisterSpi(NULL);
         pTrader->Release();
 
-        delete instance;
+        //delete pTrader;
         instance = NULL;
 
         return 0;
@@ -168,7 +168,7 @@ extern "C"
 
         //×¢²á»Øµ÷
         pMdApi->RegisterSpi(spi);
-
+        
         //¶©ÔÄÁ÷
         //pMdApi->SubscribePublicTopic((THOST_TE_RESUME_TYPE)p1);
         //pMdApi->SubscribePrivateTopic((THOST_TE_RESUME_TYPE)p1);
@@ -183,7 +183,7 @@ extern "C"
         pMarketData->RegisterSpi(NULL);
         pMarketData->Release();
 
-        delete instance;
+        //delete instance;
         instance = NULL;
 
         return 0;
