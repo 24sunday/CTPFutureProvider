@@ -25,42 +25,6 @@ namespace CTPTraderTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("180.168.102.230:26205")]
-        public string TradeServerAddress {
-            get {
-                return ((string)(this["TradeServerAddress"]));
-            }
-            set {
-                this["TradeServerAddress"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("180.168.102.230:26213")]
-        public string QuoteServerAddress {
-            get {
-                return ((string)(this["QuoteServerAddress"]));
-            }
-            set {
-                this["QuoteServerAddress"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1001")]
-        public string BrokerID {
-            get {
-                return ((string)(this["BrokerID"]));
-            }
-            set {
-                this["BrokerID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("00000001")]
         public string TradingAccountID {
             get {
@@ -80,6 +44,42 @@ namespace CTPTraderTest.Properties {
             }
             set {
                 this["TradingAccountPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ctpmn1-front1.citicsf.com:51205")]
+        public string TradeServerAddress {
+            get {
+                return ((string)(this["TradeServerAddress"]));
+            }
+            set {
+                this["TradeServerAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ctpmn1-front1.citicsf.com:51213")]
+        public string QuoteServerAddress {
+            get {
+                return ((string)(this["QuoteServerAddress"]));
+            }
+            set {
+                this["QuoteServerAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1017")]
+        public string BrokerID {
+            get {
+                return ((string)(this["BrokerID"]));
+            }
+            set {
+                this["BrokerID"] = value;
             }
         }
     }
